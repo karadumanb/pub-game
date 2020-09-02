@@ -1,17 +1,20 @@
-import { Container, Tab, List, Tabs as NativaTabs } from 'native-base';
+import { Container, Tab, List, Tabs as NativeTabs } from 'native-base';
 import React from 'react';
+import { ScrollView } from 'react-native';
 import FadeIn from 'src/components/animations/FadeIn';
-import Loading from 'src/components/general/Loading';
 import Colors from 'src/core/Colors';
-import ListItem from 'src/modules/list/Item';
+import GameCard from 'src/modules/game/Card';
 import TabOptions from './tabs.json';
 
-const response = [{
-  name: 'Mingler',
+const response: IGame[] = [{
+  title: 'Mingler',
+  image_url: undefined,
+  description: 'The person who mingles the best will win the game!'
 }, {
-  name: 'Mingler',
-}]
-
+  title: 'Crime',
+  image_url: undefined,
+  description: 'The person who solves the crime will win the game!'
+}];
 
 const Tabs = () => {
 
@@ -19,37 +22,33 @@ const Tabs = () => {
     switch (tab) {
       case 'tab1':
         return (
-          <FadeIn factor={0.2}>
-            <List
-              dataArray={response}
-              keyExtractor={(_, index: number) => index.toString()}
-              renderRow={(item, index) => {
-                return (
-                  <ListItem key={`item-${index}`} data={item} />
-                )
-              }} />
-          </FadeIn>
+          <List
+            dataArray={response}
+            keyExtractor={(_, index: number) => index.toString()}
+            renderRow={(item, index) => {
+              return (
+                <GameCard key={`item-${index}`} game={item} />
+              )
+            }} />
         )
 
       default:
         return (
-          <FadeIn factor={0.2}>
-            <List
-              dataArray={response}
-              keyExtractor={(_, index: number) => index.toString()}
-              renderRow={(item, index) => {
-                return (
-                  <ListItem key={`item-${index}`} data={item} />
-                )
-              }} />
-          </FadeIn>
+          <List
+            dataArray={response}
+            keyExtractor={(_, index: number) => index.toString()}
+            renderRow={(item, index) => {
+              return (
+                <GameCard key={`item-${index}`} game={item} />
+              )
+            }} />
         )
     }
   }
 
   return (
     <Container>
-      <NativaTabs tabBarUnderlineStyle={{ backgroundColor: Colors.light.white }}>
+      <NativeTabs tabBarUnderlineStyle={{ backgroundColor: Colors.light.white }}>
         {
           Object.keys(TabOptions).map((tab: string) => {
             return (
@@ -67,7 +66,7 @@ const Tabs = () => {
             )
           })
         }
-      </NativaTabs>
+      </NativeTabs>
     </Container >
   );
 }
