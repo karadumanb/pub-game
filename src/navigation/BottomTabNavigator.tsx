@@ -6,7 +6,7 @@ import Colors from 'src/core/Colors';
 import { QuizNavigator } from 'src/screens/Root/Quiz/stack';
 import useColorScheme from '../hooks/useColorScheme';
 import Tabs from '../screens/Root/List';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from './types';
+import { BottomTabParamList, TabOneParamList } from './types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -15,20 +15,20 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Home"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Home"
+        name="Quiz"
         component={QuizNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-help-circle" color={color} />,
         }}
       />
     </BottomTab.Navigator>
