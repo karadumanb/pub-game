@@ -9,7 +9,7 @@ import { RowItem } from "src/components/general/RowItem";
 import { NavigationProp } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const HomeIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
+const QuizIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
   <ScrollView>
     <StatusBar barStyle="dark-content" />
     <SafeAreaView>
@@ -17,7 +17,7 @@ const HomeIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
         name="Space"
         color="#36b1f0"
         onPress={() =>
-          navigation.navigate("Quiz", {
+          navigation.navigate("QuizShow", {
             title: "Space",
             questions: spaceQuestions,
             color: "#36b1f0"
@@ -28,7 +28,7 @@ const HomeIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
         name="Westerns"
         color="#799496"
         onPress={() =>
-          navigation.navigate("Quiz", {
+          navigation.navigate("QuizShow", {
             title: "Westerns",
             questions: westernsQuestions,
             color: "#799496"
@@ -39,7 +39,7 @@ const HomeIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
         name="Computers"
         color="#49475B"
         onPress={() =>
-          navigation.navigate("Quiz", {
+          navigation.navigate("QuizShow", {
             title: "Computers",
             questions: computerQuestions,
             color: "#49475B"
@@ -50,4 +50,4 @@ const HomeIndex = ({ navigation }: { navigation: NavigationProp<any> }) => (
   </ScrollView>
 );
 
-export default HomeIndex;
+export default QuizIndex;

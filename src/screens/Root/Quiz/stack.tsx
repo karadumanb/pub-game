@@ -2,12 +2,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import NotFoundScreen from 'src/screens/NotFoundScreen';
 import QuizIndex from './index';
-import Quiz from '../Quiz';
+import QuizShow from './quiz';
 
 type RootStackParamList = {
-  Index: undefined,
+  QuizIndex: undefined,
   NotFound: undefined,
-  Show: undefined,
+  QuizShow: undefined,
 }
 // A root stack navigator is often used for displaying modals on top of all other content
 // Read more here: https://reactnavigation.org/docs/modal
@@ -15,9 +15,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export function QuizNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Index">
-      <Stack.Screen name="Index" component={QuizIndex} options={{ headerTitle: 'Quizesss' }} />
-      <Stack.Screen name="Show" component={QuizIndex} options={({ navigation, route }) => {
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="QuizIndex">
+      <Stack.Screen key="QuizIndex" name="QuizIndex" component={QuizIndex} options={{ headerTitle: 'Quizesss' }} />
+      <Stack.Screen key="QuizShow" name="QuizShow" component={QuizShow} options={({ navigation, route }) => {
         console.log({navigation, route})
         return {
           headerTitle: route.params?.["title"],
@@ -28,7 +28,7 @@ export function QuizNavigator() {
           }
         }
       }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen key="NotFound" name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
 }
