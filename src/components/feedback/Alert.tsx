@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { Dimensions, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import Colors from "src/core/Colors";
+import FadeInScaleUp from "../animations/FadeInScaleUp";
 
 const screen = Dimensions.get("window");
 
@@ -35,12 +36,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Alert: React.FC<{success: boolean, visible: boolean}> = ({ success, visible }) => {
+export const Alert: React.FC<{ success: boolean, visible: boolean }> = ({ success, visible }) => {
   if (!visible) return null;
 
-  const icon = success
-    ? <MaterialCommunityIcons name='check' />
-    : <MaterialCommunityIcons name='close' />;
+  const icon = React.useMemo(() => {
+    return success
+      ? <MaterialCommunityIcons name='check' />
+      : <MaterialCommunityIcons name='close' />;
+  }, [success]);
 
   const circleStyles: StyleProp<ViewStyle> = [styles.circle];
 
@@ -50,9 +53,11 @@ export const Alert: React.FC<{success: boolean, visible: boolean}> = ({ success,
 
   return (
     <View style={styles.container}>
-      <View style={circleStyles}>
-        {React.cloneElement(icon, { style: styles.icon })}
-      </View>
+      <FadeInScaleUp factor={0.2}>
+        <View style={circleStyles}>
+          {React.cloneElement(icon, { style: styles.icon })}
+        </View>
+      </FadeInScaleUp>
     </View>
   );
 };

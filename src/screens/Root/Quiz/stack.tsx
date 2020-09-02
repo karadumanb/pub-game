@@ -17,8 +17,7 @@ export function QuizNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="QuizIndex">
       <Stack.Screen key="QuizIndex" name="QuizIndex" component={QuizIndex} options={{ headerTitle: 'Quizesss' }} />
-      <Stack.Screen key="QuizShow" name="QuizShow" component={QuizShow} options={({ navigation, route }) => {
-        console.log({navigation, route})
+      <Stack.Screen key="QuizShow" name="QuizShow" component={QuizShow} options={({ route }) => {
         return {
           headerTitle: route.params?.["title"],
           headerTintColor: "#fff",

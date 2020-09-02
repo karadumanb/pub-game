@@ -49,7 +49,7 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="TabOneScreen"
+        name="Game"
         component={Tabs}
         options={{
           headerTitle: 'Let the game start!',

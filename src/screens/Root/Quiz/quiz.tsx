@@ -1,9 +1,11 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Button, ButtonContainer } from "src/components/general/Button";
 import { useNotifier } from "src/contexts/NotifyContext";
 import Colors from "src/core/Colors";
+import { globalStyles } from "src/core/Styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +30,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: "center",
     marginTop: 10
+  },
+  skipText: {
+    color: Colors.light.white
+  },
+  skipIcon: {
+    color: Colors.light.white,
+    marginTop: 3
+  },
+  skipWrapper: {
+    position: 'absolute',
+    right: 0
   }
 });
 
@@ -47,7 +60,7 @@ const Quiz = (props: any) => {
       showAlert(true, nextQuestion);
     } else {
       showAlert(false);
-      if(isSecondTrial) {
+      if (isSecondTrial) {
         nextQuestion();
       } else {
         setIsSecondTrial(true);
@@ -95,9 +108,17 @@ const Quiz = (props: any) => {
           )}
         </View>
 
-        <Text style={[styles.text, { marginBottom: 10 }]}>
-          {`${activeQuestionIndex}/${totalCount}`}
-        </Text>
+        <View style={{ marginBottom: 10 }}>
+          <Text style={styles.text}>
+            {`${activeQuestionIndex}/${totalCount}`}
+          </Text>
+          <TouchableOpacity style={[styles.skipWrapper, globalStyles.flexRow, globalStyles.flexCenter]} onPress={nextQuestion}>
+            <Text style={styles.skipText}>
+              Skip
+            </Text>
+            <MaterialCommunityIcons name='chevron-right' style={styles.skipIcon} size={24}/>
+          </TouchableOpacity>
+        </View>
       </SafeAreaView>
     </View>
   );
