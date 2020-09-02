@@ -3,10 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import Colors from 'src/core/Colors';
-import { HomeNavigator } from 'src/screens/Root/Home/stack';
+import { QuizNavigator } from 'src/screens/Root/Quiz/stack';
 import useColorScheme from '../hooks/useColorScheme';
 import Tabs from '../screens/Root/List';
-import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from './types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -27,7 +26,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Home"
-        component={HomeNavigator}
+        component={QuizNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -52,6 +51,10 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={Tabs}
+        options={{
+          headerTitle: 'Let the game start!',
+          headerTintColor: Colors.light.primary
+        }}
       />
     </TabOneStack.Navigator>
   );

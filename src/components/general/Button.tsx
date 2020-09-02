@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -24,11 +24,37 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Button: React.FC<{ text: string; onPress: () => void }> = ({ text, onPress = () => { } }) => (
-  <TouchableOpacity onPress={onPress} style={styles.button}>
-    <Text style={styles.text}>{text}</Text>
-  </TouchableOpacity>
-);
+type Props = {
+  text: string;
+  onPress: () => void;
+  disableOnPress?: boolean;
+  disabled?: boolean;
+}
+
+export const Button: React.FC<Props> = ({
+  text,
+  onPress = () => { },
+  disableOnPress = false,
+  disabled: disabledProp
+}) => {
+  const [disabled, setDisabled] = useState(false);
+
+  const handlePress = () => {
+    disableOnPress && setDisabled(true);
+    onPress();
+  };
+
+  const disabledButton = disabledProp || disabled;
+
+  return (
+    <TouchableOpacity
+      onPress={handlePress}
+      style={[styles.button, disabledButton && { opacity: .5 }]}
+      disabled={disabledButton}>
+      <Text style={styles.text}>{text}</Text>
+    </TouchableOpacity>
+  );
+}
 
 export const ButtonContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <View style={styles.buttonContainer}>{children}</View>

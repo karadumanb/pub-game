@@ -1,6 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { View, StyleSheet, Dimensions, Image } from "react-native";
+import { Dimensions, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import Colors from "src/core/Colors";
 
 const screen = Dimensions.get("window");
 
@@ -16,40 +17,41 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   circle: {
-    backgroundColor: "#ff4136",
+    backgroundColor: Colors.light.danger,
     width: screen.width / 2,
     height: screen.width / 2,
     borderRadius: screen.width / 2,
     alignItems: "center",
     justifyContent: "center"
   },
-  circleCorrect: {
-    backgroundColor: "#28A125"
+  circleSuccess: {
+    backgroundColor: Colors.light.success
   },
   icon: {
-    width: screen.width / 3
+    fontSize: 50,
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
   }
 });
 
-export const Alert: React.FC<{ correct: boolean, visible: boolean }> = ({ correct, visible }) => {
+export const Alert: React.FC<{success: boolean, visible: boolean}> = ({ success, visible }) => {
   if (!visible) return null;
 
-  const icon = correct
+  const icon = success
     ? <MaterialCommunityIcons name='check' />
     : <MaterialCommunityIcons name='close' />;
 
-  const circleStyles = [styles.circle];
+  const circleStyles: StyleProp<ViewStyle> = [styles.circle];
 
-  if (correct) {
-    //@ts-ignore
-    circleStyles.push(styles.circleCorrect);
+  if (success) {
+    circleStyles.push(styles.circleSuccess);
   }
 
   return (
     <View style={styles.container}>
       <View style={circleStyles}>
         {React.cloneElement(icon, { style: styles.icon })}
-        {/* <Image source={icon} style={styles.icon} resizeMode="contain" /> */}
       </View>
     </View>
   );

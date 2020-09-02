@@ -1,31 +1,42 @@
-import { Body, Container, Header, Left, Right, Tab, Tabs as NativaTabs, Title } from 'native-base';
+import { Container, Tab, List, Tabs as NativaTabs } from 'native-base';
 import React from 'react';
-import ListsTab from './ListTab';
+import Loading from 'src/components/general/Loading';
+import Colors from 'src/core/Colors';
+import ListItem from 'src/modules/list/Item';
 import TabOptions from './tabs.json';
 
 const Tabs = () => {
+  const loading = false;
+  const response = ['First', 'Second'];
   return (
     <Container>
-      <Header style={{ backgroundColor: '#009387' }} hasTabs>
-        <Left />
-        <Body>
-          <Title style={{ color: 'white' }}>Starter App</Title>
-        </Body>
-        <Right />
-      </Header>
       <NativaTabs tabBarUnderlineStyle={{ backgroundColor: 'white' }}>
         {
           Object.keys(TabOptions).map((tab: string) => {
             return (
               <Tab
                 key={tab}
-                tabStyle={{ backgroundColor: '#009387' }}
-                activeTabStyle={{ backgroundColor: '#009387' }}
+                tabStyle={{ backgroundColor: Colors.light.primary }}
+                activeTabStyle={{ backgroundColor: Colors.light.primary }}
                 textStyle={{ color: 'white' }}
                 activeTextStyle={{ color: 'white' }}
                 //@ts-ignore
                 heading={TabOptions[tab].name}>
-                <ListsTab />
+                <Container>
+                  {loading && <Loading loading={loading} />}
+                  {
+                    !loading && (
+                      <List
+                        dataArray={response}
+                        keyExtractor={(_, index: number) => index.toString()}
+                        renderRow={(item, index) => {
+                          return (
+                            <ListItem key={`item-${index}`} data={item} />
+                          )
+                        }} />
+                    )
+                  }
+                </Container>
               </Tab>
             )
           })

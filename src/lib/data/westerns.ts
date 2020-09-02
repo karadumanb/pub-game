@@ -12,10 +12,10 @@ const questions = [
   {
     question: 'What weapon has become known as "the gun that won the west"?',
     answers: [
-      { id: "1", text: "Smith & Wesson Revolver" },
-      { id: "2", text: "Colt Peacemaker", correct: true },
-      { id: "3", text: "Winchester Revolver" },
-      { id: "4", text: "Sharps Derringer" }
+      { id: "5", text: "Smith & Wesson Revolver" },
+      { id: "6", text: "Colt Peacemaker", correct: true },
+      { id: "7", text: "Winchester Revolver" },
+      { id: "8", text: "Sharps Derringer" }
     ]
   }
 ];

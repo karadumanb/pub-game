@@ -11,10 +11,10 @@ const questions = [
   {
     question: "How many planets are in the Solar System?",
     answers: [
-      { id: "1", text: "6" },
-      { id: "2", text: "7" },
-      { id: "3", text: "8", correct: true },
-      { id: "4", text: "9" }
+      { id: "5", text: "6" },
+      { id: "6", text: "7" },
+      { id: "7", text: "8", correct: true },
+      { id: "8", text: "9" }
     ]
   }
 ];

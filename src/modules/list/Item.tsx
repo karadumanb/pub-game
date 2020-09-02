@@ -1,5 +1,6 @@
 import { Body, Button, Left, ListItem, Right, Text, Thumbnail, View } from 'native-base';
 import React from 'react';
+import Colors from 'src/core/Colors';
 
 type Props = {
   data: any
@@ -27,7 +28,7 @@ const DataItem: React.FC<Props> = ({ data }) => {
         </View>
       </Body>
       <Right>
-        <Button transparent onPress={handlePress}>
+        <Button transparent onPress={handlePress} textStyle={{color: Colors.light.primary}}>
           <Text>View</Text>
         </Button>
       </Right>

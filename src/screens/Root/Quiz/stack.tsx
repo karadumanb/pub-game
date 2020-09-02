@@ -1,11 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import NotFoundScreen from 'src/screens/NotFoundScreen';
-import HomeIndex from './index';
-import QuizIndex from '../Quiz';
+import QuizIndex from './index';
+import Quiz from '../Quiz';
 
 type RootStackParamList = {
-  Home: undefined,
+  QuizIndex: undefined,
   NotFound: undefined,
   Quiz: undefined,
 }
@@ -13,10 +13,10 @@ type RootStackParamList = {
 // Read more here: https://reactnavigation.org/docs/modal
 const Stack = createStackNavigator<RootStackParamList>();
 
-export function HomeNavigator() {
+export function QuizNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={HomeIndex} options={{ headerTitle: 'Quizesss' }} />
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="QuizIndex">
+      <Stack.Screen name="QuizIndex" component={QuizIndex} options={{ headerTitle: 'Quizesss' }} />
       <Stack.Screen name="Quiz" component={QuizIndex} options={({ navigation, route }) => {
         console.log({navigation, route})
         return {

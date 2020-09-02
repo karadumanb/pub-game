@@ -11,10 +11,10 @@ const questions = [
   {
     question: "What kind of fruit was used to name a computer in 1984?",
     answers: [
-      { id: "1", text: "Blackberry" },
-      { id: "2", text: "Blueberry" },
-      { id: "3", text: "Pear" },
-      { id: "4", text: "Apple", correct: true }
+      { id: "5", text: "Blackberry" },
+      { id: "6", text: "Blueberry" },
+      { id: "7", text: "Pear" },
+      { id: "8", text: "Apple", correct: true }
     ]
   }
 ];
