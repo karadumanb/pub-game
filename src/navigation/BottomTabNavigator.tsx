@@ -1,13 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import Colors from 'src/core/Colors';
-import NeverHave from 'src/screens/Root/Games/NeverHave';
 import { GameNavigator } from 'src/screens/Root/Games/stack';
 import { QuizNavigator } from 'src/screens/Root/Quiz/stack';
 import useColorScheme from '../hooks/useColorScheme';
-import GameIndex from '../screens/Root/Games';
 import { BottomTabParamList } from './types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();

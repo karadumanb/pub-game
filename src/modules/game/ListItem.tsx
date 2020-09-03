@@ -31,7 +31,7 @@ const GameListItem: React.FC<Props> = ({ game }) => {
       </Body>
       <Right>
         <Button transparent onPress={handlePress} textStyle={{color: Colors.light.primary}}>
-          <Text>View</Text>
+          <Text>Play</Text>
         </Button>
       </Right>
     </ListItem>

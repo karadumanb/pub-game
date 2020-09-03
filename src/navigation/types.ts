@@ -11,6 +11,8 @@ export type BottomTabParamList = {
 export type GameParamList = {
   Game: undefined;
   never_have: undefined;
+  truth_or_drink: undefined;
+  dare_or_drink: undefined;
 };
 
 export type TabTwoParamList = {

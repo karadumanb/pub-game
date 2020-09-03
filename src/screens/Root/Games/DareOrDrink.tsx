@@ -80,14 +80,15 @@ const dataSource = [
   "Never have I ever lied about a family member dying as an excuse to get out of doing something."
 ];
 
-function NeverHave() {
+function DareOrDrink() {
+
   return (
     <ShowContainer
-      tip={'Drink if you have done it!'}
-      lottieFile={require('assets/animations/shot.json')}
+      tip={"Drink if you don't dare"}
+      lottieFile={require('assets/animations/hamster.json')}
       dataSource={dataSource}
     />
   );
 }
 
-export default NeverHave;
+export default DareOrDrink;

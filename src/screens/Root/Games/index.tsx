@@ -12,7 +12,7 @@ const response: IGame[] = [{
   image_url: require('assets/images/mingle.jpg'),
   description: 'The person who mingles the best will win the game! You need to play each game as many people as you can. Find random person in the room. After you match the game will automatically start.',
   sub_title: 'One of the most popular',
-  type: 'never_have'
+  type: 'mingler'
 }, {
   prominent: false,
   title: 'Never Have I Ever',
@@ -26,14 +26,14 @@ const response: IGame[] = [{
   image_url: require('assets/images/deamon.jpg'),
   description: "If you cannot answer the tough question, do a shot!",
   sub_title: 'Ice breaker',
-  type: 'never_have'
+  type: 'truth_or_drink'
 }, {
   prominent: false,
   title: 'Dare or Drink',
   image_url: require('assets/images/deamon.jpg'),
   description: "If you don't dare, do a shot!",
   sub_title: 'Ice breaker',
-  type: 'never_have'
+  type: 'dare_or_drink'
 }];
 
 const GameIndex = () => {
