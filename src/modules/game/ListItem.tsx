@@ -1,16 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import { Body, Button, Left, ListItem, Right, Text, Thumbnail, View } from 'native-base';
 import React from 'react';
 import Colors from 'src/core/Colors';
 
 type Props = {
-  data: IGame;
+  game: IGame;
 }
 
-const DataItem: React.FC<Props> = ({ data }) => {
-  const { image_url, title, description } = data;
+const GameListItem: React.FC<Props> = ({ game }) => {
+  const navigation = useNavigation();
+
+  const { image_url, title, description, sub_title } = game;
 
 
-  const handlePress = () => console.log(data);
+  const handlePress = () => navigation.navigate(game.type);
 
   return (
     <ListItem thumbnail>
@@ -23,7 +26,7 @@ const DataItem: React.FC<Props> = ({ data }) => {
         <Text numberOfLines={2}>{title}</Text>
         <Text note numberOfLines={2}>{description}</Text>
         <View style={{ flex: 1, flexDirection: 'row', marginTop: 8, marginLeft: 0 }}>
-          <Text note>{'01.12.2020'}</Text>
+          <Text note>{sub_title}</Text>
         </View>
       </Body>
       <Right>
@@ -35,4 +38,4 @@ const DataItem: React.FC<Props> = ({ data }) => {
   );
 }
 
-export default DataItem;
+export default GameListItem;

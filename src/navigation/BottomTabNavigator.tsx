@@ -3,10 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import Colors from 'src/core/Colors';
+import NeverHave from 'src/screens/Root/Games/NeverHave';
+import { GameNavigator } from 'src/screens/Root/Games/stack';
 import { QuizNavigator } from 'src/screens/Root/Quiz/stack';
 import useColorScheme from '../hooks/useColorScheme';
-import Tabs from '../screens/Root/List';
-import { BottomTabParamList, TabOneParamList } from './types';
+import GameIndex from '../screens/Root/Games';
+import { BottomTabParamList } from './types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -19,7 +21,7 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="Home"
-        component={TabOneNavigator}
+        component={GameNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={color} />,
         }}
@@ -39,23 +41,4 @@ export default function BottomTabNavigator() {
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
-}
-
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="Game"
-        component={Tabs}
-        options={{
-          headerTitle: 'Let the game start!',
-          headerTintColor: Colors.light.primary
-        }}
-      />
-    </TabOneStack.Navigator>
-  );
 }

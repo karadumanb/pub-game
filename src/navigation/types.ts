@@ -8,8 +8,9 @@ export type BottomTabParamList = {
   Quiz: undefined;
 };
 
-export type TabOneParamList = {
+export type GameParamList = {
   Game: undefined;
+  never_have: undefined;
 };
 
 export type TabTwoParamList = {

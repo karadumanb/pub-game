@@ -11,7 +11,8 @@ export default {
     tabIconSelected: tintColorLight,
     white: '#fff',
     success: '#28A125',
-    danger: '#ff4136'
+    danger: '#ff4136',
+    neverHave: '#36B1F0'
   },
   dark: {
     primary: '#2600e2ab',
@@ -22,6 +23,7 @@ export default {
     tabIconSelected: tintColorDark,
     white: '#000',
     success: '#28A125',
-    danger: '#ff4136'
+    danger: '#ff4136',
+    neverHave: '#36B1F0'
   },
 };
