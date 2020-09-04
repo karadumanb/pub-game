@@ -84,7 +84,7 @@ function NeverHave() {
   return (
     <ShowContainer
       tip={'Drink if you have done it!'}
-      lottieFile={require('assets/animations/shot.json')}
+      lottieProps={{ source: require('assets/animations/beer_bubbles.json'), loop: true, resizeMode: 'cover' }}
       dataSource={dataSource}
     />
   );

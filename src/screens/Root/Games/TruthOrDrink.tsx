@@ -485,7 +485,7 @@ function TruthOrDrink() {
   return (
     <ShowContainer
       tip={'Drink if cannot answer it!'}
-      lottieFile={require('assets/animations/drink_on_beach.json')}
+      lottieProps={{ source: require('assets/animations/cheers.json') }}
       dataSource={dataSource}
     />
   );

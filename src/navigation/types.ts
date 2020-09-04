@@ -13,6 +13,7 @@ export type GameParamList = {
   never_have: undefined;
   truth_or_drink: undefined;
   dare_or_drink: undefined;
+  most_likely_to: undefined;
 };
 
 export type TabTwoParamList = {

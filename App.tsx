@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import NotifyProvider from 'src/contexts/NotifyContext';
 import useCachedResources from 'src/hooks/useCachedResources';
 import useColorScheme from 'src/hooks/useColorScheme';
+import Setup from 'src/lib/setup';
 import Navigation from 'src/navigation';
 
 
@@ -15,12 +16,14 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <NotifyProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </NotifyProvider>
-      </SafeAreaProvider>
+      <Setup>
+        <SafeAreaProvider>
+          <NotifyProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </NotifyProvider>
+        </SafeAreaProvider>
+      </Setup>
     );
   }
 }

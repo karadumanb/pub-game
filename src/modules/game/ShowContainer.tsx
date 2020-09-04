@@ -10,10 +10,10 @@ import { globalStyles } from 'src/core/Styles';
 type Props = {
   dataSource: string[];
   tip: string,
-  lottieFile: string
+  lottieProps: { source: string, speed?: number, loop?: boolean, resizeMode?: 'cover' };
 }
 
-function ShowContainer({ dataSource = [], tip = '', lottieFile = '', }: Props) {
+function ShowContainer({ dataSource = [], tip = '', lottieProps = { source: '' }, }: Props) {
   const [statement, setStatement] = useState<string | undefined>(undefined);
 
   const setRandomStatement = () => {
@@ -28,11 +28,10 @@ function ShowContainer({ dataSource = [], tip = '', lottieFile = '', }: Props) {
 
   return (
     <View style={styles.container}>
+      { lottieProps.resizeMode === 'cover' && <LottieView {...lottieProps} trigger={statement} />}
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safearea}>
-        <LottieView
-          source={lottieFile}
-        />
+        {lottieProps.resizeMode !== 'cover' && <LottieView {...lottieProps} trigger={statement} />}
         {statement ? (
           <FadeUp>
             <Text style={styles.text}>{statement}</Text>

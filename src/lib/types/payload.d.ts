@@ -2,7 +2,7 @@ declare type RequestPayload<T> =
   | { [key: string]: string | number | T | RequestPayload<any> }
   | T;
 
-type IGameType = 'never_have' | 'truth_or_drink' | 'mingler' | 'dare_or_drink'
+type IGameType = 'never_have' | 'truth_or_drink' | 'mingler' | 'dare_or_drink' | 'most_likely_to'
 
 declare interface IGame {
   prominent: boolean;

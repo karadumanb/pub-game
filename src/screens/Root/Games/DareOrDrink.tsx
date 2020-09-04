@@ -85,7 +85,7 @@ function DareOrDrink() {
   return (
     <ShowContainer
       tip={"Drink if you don't dare"}
-      lottieFile={require('assets/animations/hamster.json')}
+      lottieProps={{ source: require('assets/animations/hamster.json'), speed: 0.5 }}
       dataSource={dataSource}
     />
   );
