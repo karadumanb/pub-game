@@ -7,6 +7,7 @@ import GameIndex from 'src/screens/Root/Games';
 import { GameParamList } from 'src/navigation/types';
 import DareOrDrink from './DareOrDrink';
 import MostLikelyTo from './MostLikelyTo';
+import ShotOfFortune from './ShotOfFortune';
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
@@ -47,6 +48,13 @@ export function GameNavigator() {
       <GameStack.Screen
         name="most_likely_to"
         component={MostLikelyTo}
+        options={{
+          headerTitle: '',
+        }}
+      />
+      <GameStack.Screen
+        name="shot_of_fortune"
+        component={ShotOfFortune}
         options={{
           headerTitle: '',
         }}

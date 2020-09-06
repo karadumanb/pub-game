@@ -14,6 +14,7 @@ export type GameParamList = {
   truth_or_drink: undefined;
   dare_or_drink: undefined;
   most_likely_to: undefined;
+  shot_of_fortune: undefined;
 };
 
 export type TabTwoParamList = {

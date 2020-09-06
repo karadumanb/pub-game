@@ -41,6 +41,13 @@ const response: IGame[] = [{
   description: "Pick someone who is most likely to!",
   sub_title: 'Ice breaker',
   type: 'most_likely_to'
+}, {
+  prominent: false,
+  title: 'Shot of Fortune',
+  image_url: require('assets/images/deamon.jpg'),
+  description: "Spin the wheel and get drunk!",
+  sub_title: 'Ice breaker',
+  type: 'shot_of_fortune'
 }];
 
 const GameIndex = () => {

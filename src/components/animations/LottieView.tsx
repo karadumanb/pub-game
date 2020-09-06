@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 
 // OR find more Lottie files @ https://lottiefiles.com/featured
-const LottieView = ({ source, style, trigger, ...others }: { source: string, style?: StyleProp<ViewStyle>, trigger?: any; }) => {
+const LottieView = ({ source, style, trigger, ...others }: { source: string, style?: StyleProp<ViewStyle>, trigger?: any; } & React.ComponentProps<typeof Lottie>) => {
   if (Platform.OS !== 'ios' && Platform.OS !== 'android') {
     return null;
   }
