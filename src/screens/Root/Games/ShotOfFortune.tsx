@@ -59,7 +59,7 @@ function ShotOfFortune() {
               color={Colors.light.white}
               size={24} />
             <Text style={styles.tipText}>
-              {"You'll need 6 shot glasses to play this game. If the shot glass is empty, fill the glass with alcohol. If not, drink the shot. The game ends when all shots become empty again."}
+              {"You'll need 6 shot glasses to play this game. Spin the wheel. If the corresponding shot glass is empty, fill the glass with alcohol. If not, drink the shot. The game ends when all shots become empty again."}
             </Text>
           </View>
         </View>

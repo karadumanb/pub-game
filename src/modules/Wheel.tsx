@@ -235,7 +235,7 @@ export default class Wheel extends React.Component<Props> {
     return (
       <>
         {this.props.gameOver && (
-          <View style={[{ position: 'absolute', zIndex: 9, width: '100%', height: '100%' }, globalStyles.flexCenter]}>
+          <View style={[{ position: 'absolute', zIndex: 99, width: '100%', height: '100%' }, globalStyles.flexCenter]}>
             <View>
               <RnText style={{ color: Colors.light.white, fontWeight: '700' }}>{'GAME OVER'}</RnText>
               <Button transparent icon onPress={() => this.props.setGameOver && this.props.setGameOver(false)}>
